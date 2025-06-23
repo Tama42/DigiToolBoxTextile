@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>DTB</title>
+</head>
+<body>
+    <div class="main-ctn">
+        <h1>DigiToolBox</h1>
+        <nav>
+            <a href="./index.html"><div style="font-weight: 600" class="menu seite-eins">Laufzeit</div></a>
+            <a href="./seitezwei.html"><div class="menu seite-zwei">Garn</div></a>
+            <a href="seitedrei.html"><div class="menu seite-drei">Test</div></a>
+            
+        </nav>
+        
+        <main>
+            <div class="ctn--0">
+                <h1>Laufzeit berechnen</h1>
+                <div id="date">--.--.-- --:--</div>
+            
+            
+                <div class="ctn--1">
+            
+                    <div class="eingabe">
+                        <div class="paar">
+                            <label class="label" for="laenge">Meter:</label>
+                            <input type="text" name="laenge" id="laenge">
+                        </div>
+            
+                        <div class="paar">
+                            <label class="label" for="schuss">Schuss/cm:</label>
+                            <input type="number" name="schuss" id="schuss">
+                        </div>
+            
+                        <div class="paar">
+                            <label class="label" for="speed">U/min:</label>
+                            <input type="number" name="speed" id="speed">
+                        </div>
+            
+                        <div class="paar">
+                            <label class="label-slider" for="nutzeffekt">Nutzeffekt:<span id="newert">_</span></label>
+                            <input type="range" id="nutzeffekt" min="25" max="100" value="95" step="5">
+                        </div>
+            
+                    </div>
+            
+            
+                    <div class="buttons">
+                        <button onclick="reset()" id="reset">Reset</button>
+                        <button onclick="berechne()" id="berechne">Berechne</button>
+                    </div>
+            
+                </div>
+            
+            
+            
+                <div class="ausgabe1">
+                    <div class="zeile">Noch <span class="wert" id="rest">-</span>Stunden</div>
+            
+                    <div class="zeile">Fertig um:<span class="wert" id="termin">-</span></div>
+                </div>
+            
+                <div class="ausgabe2">
+                    <div class="zeile"><span class="wert" id="mpstunde">-</span>Meter/Stunde<span class="hundertP">(bei 100%
+                            NE)</span></div>
+            
+                    <div class="zeile"><span class="wert" id="mpschicht">-</span>Meter/Schicht<span class="hundertP">(bei 100%
+                            NE)</span></div>
+            
+                    <div class="zeile"><span class="wert" id="mptag">-</span>Meter/Tag<span class="hundertP">(bei 100% NE)</span>
+                    </div>
+            
+                    <div class="zeile">100m laufen in<span class="wert" id="hundertMeter">-</span>Std<span class="hundertP">(bei
+                            100% NE)</span></div>
+                </div>  </div>
+        </main>
+
+        <footer>
+            <span> <a href="mailto:info@erdjeans.de">info@erdjeans.de</a></span>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="yarn.js" defer></script>
+    <title>DTB</title>
+</head>
+
+<body>
+    <div class="main-ctn">
+        <h1>DigiToolBox</h1>
+        <nav>
+            <a href="./index.html">
+                <div class="menu seite-eins">Laufzeit</div>
+            </a>
+            <a href="./seitezwei.html">
+                <div style="font-weight: 600" class="menu seite-zwei">Garn</div>
+            </a>
+            <a href="seitedrei.html">
+                <div class="menu seite-drei">Test</div>
+            </a>
+        </nav>
+
+        <main>
+            <div class="ctn--0">
+                <h1>Garn berechnen(KG in M)</h1>
+                
+            
+            
+                <div class="ctn--1">
+            
+                    <div class="eingabe">
+                        <div class="paar">
+                            <label class="label" for="material">Material:</label>
+                            <select name="material" id="material">
+                                <option value="pet">Polyester(PET)</option>
+                                <option value="pa6">Polyamid 6&6.6(PA)</option>
+                                <option value="pa12">Polyamid 12(PA)</option>
+                                <option value="pe">Polyethylen(PE)</option>
+                                <option value="pp">Polypropylen(PP)</option>
+                                <option value="pps">Polyphenylensulfid(PPS)</option>
+                                <option value="pvdf">Polyvinylidenfluorid(PVDF)</option>
+                                <option value="peek">Polyetheretherketon(PEEK)</option>
+                            </select>
+                        </div>
+            
+                        <div class="paar">
+                            <label class="label" for="diameter">Durchmesser:</label>
+                            <input type="number" name="diameter" id="diameter">
+                            <select id="diameter-options" class="options-menu">
+                                <option value="">-</option>
+                                <option value="0.10">0,10 mm</option>
+                                <option value="0.12">0,12 mm</option>
+                                <option value="0.14">0,14 mm</option>
+                                <option value="0.15">0,15 mm</option>
+                                <option value="0.16">0,16 mm</option>
+                                <option value="0.18">0,18 mm</option>
+                                <option value="0.195">0,195 mm</option>
+                                <option value="0.20">0,20 mm</option>
+                                <option value="0.22">0,22 mm</option>
+                                <option value="0.25">0,25 mm</option>
+                                <option value="0.26">0,26 mm</option>
+                                <option value="0.28">0,28 mm</option>
+                                <option value="0.30">0,30 mm</option>
+                                <option value="0.325">0,325 mm</option>
+                                <option value="0.38">0,38 mm</option>
+                                <option value="0.40">0,40 mm</option>
+                                <option value="0.50">0,50 mm</option>
+                                <option value="0.60">0,60 mm</option>
+                                <option value="0.80">0,80 mm</option>
+                                <option value="0.90">0,90 mm</option>
+                                <option value="0.95">0,95 mm</option>
+                                <option value="1.00">1,00 mm</option>
+                            </select>
+                        </div>
+            
+                        <div class="paar">
+                            <label class="label" for="kg">Gewicht (KG):</label>
+                            <input type="number" name="kg" id="kg">
+                        </div>
+
+                        <div class="paar">
+                            <label class="label" for="tara">Tara (KG):</label>
+                            <input type="number" name="tara" id="tara" value="0">
+                            <select id="tara-options" class="options-menu">
+                                <option value="">-</option>
+                               
+                            </select>
+                        </div>
+
+                        <div class="paar">
+                            <label class="label" for="threads">Fäden:</label>
+                            <input type="number" name="threads" id="threads" value="1">
+                        </div>
+            
+                        
+            
+                    </div>
+            
+            
+                    <div class="buttons" style="margin-top:20px">
+                        <button id="resetAll">Reset<br><span class="subtitle">(Alles)</span></button>
+                        <button id="resetWeight">Reset<br><span class="subtitle">(Gewicht)</span></button>
+                        <button id="berechne">Berechne</button>
+                    </div>
+            
+                </div>
+            
+            
+            
+                <div class="ausgabe1">
+                    <div class="zeile">Material: <span class="wert" id="output-material">-</span></div>
+            
+                    <div class="zeile">Dichte: <span class="wert" id="output-density">-</span> g/cm³</div>
+                </div>
+            
+                <div class="ausgabe2">
+                    <div class="zeile"><span class="wert" id="output-weight">-</span>KG (Netto)</div>
+            
+                    <div class="zeile"><span class="wert" id="output-diameter">-</span>mm Ø</div>
+            
+                    <div class="zeile"><span class="wert" id="output-length">-</span>Länge (M)</div>
+            
+                    </div>
+        </main>
+
+        <footer>
+            <span> <a href="mailto:info@erdjeans.de">info@erdjeans.de</a></span>
+        </footer>
+    </div>
+    
+
+</body>
+
+</html>

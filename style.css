@@ -1,0 +1,237 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: sans-serif;
+    width: 100%;
+    height: 100vh;
+}
+
+.main-ctn{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-ctn > h1{
+    font-size: 26px;
+    color: rgb(77, 77, 77);
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    width: 320px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding: 5px 15px;
+    background-color: rgb(0, 255, 255);
+    
+    border: 3px solid black;
+    font-size: 16px;
+}
+
+nav :not(:first-child){
+    border-left: 3px solid rgb(0, 187, 187);
+    
+}
+
+nav a{
+    text-decoration: none;
+    color: black;
+}
+
+.menu{
+    background-color: rgb(0, 255, 255);
+    transition: transform 0.3s , color 0.3s;
+    width: 90px;
+    text-align: center;
+    padding: 0 5px;
+    
+}
+
+.menu:hover{
+    transform: scale(1.1);
+    background-color:rgb(0, 187, 187);
+    cursor: pointer;
+}
+
+main{
+    display:flex;
+    width: 100%;
+    height: 80%;
+    
+    margin : 5px auto;
+    background-color: whitesmoke;
+}
+
+
+
+footer{
+    right: 5px;
+    bottom: 5px;
+    background-color: lightgray;
+    position: absolute;
+}
+
+nav, .ctn--0{
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.5);
+}
+
+/*Laufzeitrechner*/
+.ctn--0 > h1{
+    font-size: 24px;
+    text-align: center;
+}
+
+#date{
+    font-size: 14px;
+    text-align: center;
+}
+.ctn--0 {
+    
+    background-color: rgb(0, 255, 255);
+    border: 3px solid black;
+    padding: 15px;
+    margin: 5px auto;
+    width: 320px;
+    height: 450px;
+}
+
+.ctn--1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 15px;
+}
+
+.eingabe {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    line-height: 1.6;
+    row-gap: 5px;
+}
+
+
+.paar input {
+    width: 100px;
+    border: none;
+}
+
+.paar {
+    display: flex;
+    border: 1px solid royalblue;
+}
+
+.paar .label {
+    padding-left: 5px;
+    width: 120px;
+}
+
+.options-menu{
+    right: 0;
+    width: 100px;
+}
+#material{
+    right: 0;
+    width: 200px;
+}
+
+
+
+#berechne {
+    width: 120px;
+    background-color: rgb(72, 255, 0);
+
+}
+
+#reset, #resetAll, #resetWeight {
+    width: 60px;
+    background-color: lightcoral;
+
+}
+
+.subtitle{
+    font-size: smaller;
+    font-weight: 100;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
+
+}
+
+.buttons button {
+    font-size: 16px;
+    font-weight: 600;
+    height: 50px;
+    border: none;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, color 0.3s;
+}
+/*
+.ausgabe1 {
+    display: flex;
+    flex-direction: column;
+    
+    width: 300px;
+    margin: 10px auto;
+    padding: 10px;
+    line-height: 1.5;
+    background-color: rgb(0, 187, 187);
+}
+*/
+.ausgabe2, .ausgabe1 {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 10px auto;
+    padding: 10px;
+    line-height: 1.5;
+    background-color: rgb(0, 187, 187);
+    text-align: left;
+}
+
+.wert {
+    width: 30px;
+    margin: 0 30px;
+}
+
+.zeile {
+    border: 1px solid royalblue;
+    padding-left: 5px;
+    font-size: 14px;
+}
+
+#newert {
+    font-size: 12px;
+    padding: 8px;
+
+}
+
+#newert::before {
+    content: "[";
+}
+
+#newert::after {
+    content: "%]";
+}
+
+.paar input {
+    text-indent: 10px;
+}
+
+.hundertP {
+    font-size: 10px;
+    padding-left: 10px;
+}

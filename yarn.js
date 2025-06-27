@@ -120,14 +120,17 @@ const initialState ={
 };
 
 function lengthCalc(){
-const {diameter, weight, tara, threads} = outputDirect();
-outputDirect();
-const nettoWeight = weight - tara;
-const density = currentDensity();
-
-const yarnLength = ((40 * nettoWeight) / (Math.PI * Math.pow(diameter, 2) * density)) / threads;
-
-outputLength.innerHTML = yarnLength.toFixed(2);
+    const {diameter, weight, tara, threads} = outputDirect();
+    const nettoWeight = weight - tara;
+    const density = currentDensity();
+  
+    const radius = diameter / 2 / 10; // mm → cm
+    const crossSection = Math.PI * radius * radius * threads; // cm²
+    const massInGrams = nettoWeight * 1000; // kg → g
+    const volume = massInGrams / density; // cm³
+    const lengthInMeters = (volume / crossSection) / 100; // cm → m
+  
+    outputLength.innerHTML = lengthInMeters.toFixed(2);
 }
 
 //test

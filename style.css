@@ -133,7 +133,7 @@ nav, .ctn--0{
 
 .paar .label {
     padding-left: 5px;
-    width: 120px;
+    width: 100px;
 }
 
 .options-menu{
@@ -179,18 +179,12 @@ nav, .ctn--0{
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s, color 0.3s;
 }
-/*
-.ausgabe1 {
-    display: flex;
-    flex-direction: column;
-    
-    width: 300px;
-    margin: 10px auto;
-    padding: 10px;
-    line-height: 1.5;
-    background-color: rgb(0, 187, 187);
+
+.buttons button:active{
+    transform: scale(0.95);
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.5);
 }
-*/
+
 .ausgabe2, .ausgabe1 {
     display: flex;
     flex-direction: column;

@@ -12,14 +12,15 @@ const materialDichten = {
 
 //Input fields
 const material = document.getElementById("material");
-const diameterOptions = document.getElementById("diameter-options");
+let diameterOptions = document.getElementById("diameter-options");
 let diameterField = document.getElementById("diameter");
 
 
 
 //Buttons
 const calcButton = document.getElementById("berechne");
-const resetButton = document.getElementById("reset");
+const resetAllButton = document.getElementById("resetAll");
+const resetWeightButton = document.getElementById("resetWeight");
 
 //Output fields
 const outputMaterial = document.getElementById("output-material");
@@ -113,7 +114,7 @@ function outputDirect(){
 
 const initialState ={
     diameter: "",
-    diameterOptions: "-",
+    "diameter-options": "-",
     kg: "",
     tara: "0",
     threads: "1"
@@ -133,9 +134,38 @@ function lengthCalc(){
     outputLength.innerHTML = lengthInMeters.toFixed(2);
 }
 
+function reset(modus){
+    //Modus 1 = All   2 = Weight only
+    if(modus === "1"){
+        console.log("Modus 1 wird ausgeführt.")
+        for(let key in initialState){
+            let temp = document.getElementById(key);
+            if(temp){
+                temp.value = initialState[key];
+            }
+        }
+
+        outputMaterial.innerText = "-";
+        outputDensity.innerText = "-";
+        outputWeight.innerText = "-";
+        outputDiameter.innerText = "-";
+        outputLength.innerText = "-";
+    }
+
+    else if(modus === "2"){
+        document.getElementById("kg").value = "";
+
+        outputWeight.innerText = "-";
+        outputLength.innerText = "-";
+    }
+
+    
+}
+
 //test
 calcButton.addEventListener("click", lengthCalc);
 
-
+resetAllButton.addEventListener("click", () => reset("1"));
+resetWeightButton.addEventListener("click", () => reset("2"));
 
 

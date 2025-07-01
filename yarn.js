@@ -12,7 +12,7 @@ const materialDichten = {
 
 //Input fields
 const material = document.getElementById("material");
-let diameterOptions = document.getElementById("diameter-options");
+let diameterOptions = document.getElementById("diameter_options");
 let diameterField = document.getElementById("diameter");
 
 
@@ -23,11 +23,11 @@ const resetAllButton = document.getElementById("resetAll");
 const resetWeightButton = document.getElementById("resetWeight");
 
 //Output fields
-const outputMaterial = document.getElementById("output-material");
-const outputDensity = document.getElementById("output-density");
-const outputWeight = document.getElementById("output-weight");
-const outputDiameter = document.getElementById("output-diameter");
-const outputLength = document.getElementById("output-length");
+const outputMaterial = document.getElementById("output_material");
+const outputDensity = document.getElementById("output_density");
+const outputWeight = document.getElementById("output_weight");
+const outputDiameter = document.getElementById("output_diameter");
+const outputLength = document.getElementById("output_length");
 
 let selectedMaterial = material.options[material.selectedIndex];
 let selectedContent = selectedMaterial.innerText;
@@ -114,7 +114,7 @@ function outputDirect(){
 
 const initialState ={
     diameter: "",
-    "diameter-options": "-",
+    diameter_options: "-",
     kg: "",
     tara: "0",
     threads: "1"

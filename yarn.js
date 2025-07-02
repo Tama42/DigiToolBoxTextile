@@ -120,6 +120,14 @@ const initialState ={
     threads: "1"
 };
 
+const outputFields = {
+    outputMaterial,
+    outputDensity,
+    outputWeight,
+    outputDiameter,
+    outputLength
+};
+
 function lengthCalc(){
     const {diameter, weight, tara, threads} = outputDirect();
     const nettoWeight = weight - tara;
@@ -138,33 +146,36 @@ function reset(modus){
     //Modus 1 = All   2 = Weight only
     if(modus === "1"){
         console.log("Modus 1 wird ausgeführt.")
-        for(let key in initialState){
-            let temp = document.getElementById(key);
-            if(temp){
-                temp.value = initialState[key];
-            }
-        }
-
-        outputMaterial.innerText = "-";
-        outputDensity.innerText = "-";
-        outputWeight.innerText = "-";
-        outputDiameter.innerText = "-";
-        outputLength.innerText = "-";
+        resetInputFields(initialState);
+        resetOutputFields();
     }
 
-    else if(modus === "2"){
-        document.getElementById("kg").value = "";
-
-        outputWeight.innerText = "-";
-        outputLength.innerText = "-";
+    if(modus === "2"){
+        const subState = {kg: ""};
+        resetInputFields(subState);
+        resetOutputFields(["outputWeight", "outputLength"]);
     }
-
-    
 }
 
-//test
-calcButton.addEventListener("click", lengthCalc);
+function resetInputFields(state){
+    for(let key in state){
+        let temp = document.getElementById(key);
+        if(temp){
+            temp.value = state[key];
+        }
+    }
+}
 
+function resetOutputFields(fieldsToReset = Object.keys(outputFields)){
+    fieldsToReset.forEach(key => {
+        if(outputFields[key]){
+            outputFields[key].innerText = "-";
+        }
+    });
+}
+
+//Button-Events
+calcButton.addEventListener("click", lengthCalc);
 resetAllButton.addEventListener("click", () => reset("1"));
 resetWeightButton.addEventListener("click", () => reset("2"));
 

@@ -174,8 +174,44 @@ function resetOutputFields(fieldsToReset = Object.keys(outputFields)){
     });
 }
 
+function saveState(){
+    const keys = Object.keys(initialState);
+    const data = {};
+
+    keys.forEach(id => {
+        const el = document.getElementById(id);
+        if(el){
+            data[id] = el.value;
+        }
+    });
+
+    localStorage.setItem("garnrechner_state", JSON.stringify(data));
+}
+
+function loadState(){
+    const raw = localStorage.getItem("garnrechner_state");
+    if(!raw) return;
+
+    const saved = JSON.parse(raw);
+    for(let key in saved){
+        const el = document.getElementById(key);
+        if(el) el.value = saved[key];
+    }
+}
+
+//beim Verlassen der Seite Eingabefelder speichern
+window.addEventListener("beforeunload", () => {
+    saveState();
+})
+
+//beim Starten der Seite, den gespeicherten Zustand speichern
+document.addEventListener("DOMContentLoaded", loadState);
+
 //Button-Events
-calcButton.addEventListener("click", lengthCalc);
+calcButton.addEventListener("click", () => {
+    lengthCalc();
+    saveState();
+});
 resetAllButton.addEventListener("click", () => reset("1"));
 resetWeightButton.addEventListener("click", () => reset("2"));
 

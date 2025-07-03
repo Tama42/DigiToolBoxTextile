@@ -12,8 +12,10 @@ const materialDichten = {
 
 //Input fields
 const material = document.getElementById("material");
-let diameterOptions = document.getElementById("diameter_options");
-let diameterField = document.getElementById("diameter");
+const diameterOptions = document.getElementById("diameter_options");
+const diameterField = document.getElementById("diameter");
+const taraOptions = document.getElementById("tara_options");
+const taraField = document.getElementById("tara");
 
 
 
@@ -45,6 +47,10 @@ diameterOptions.addEventListener("change", () => {
     console.log(currentDiamter)
     diameterField.value = currentDiamter;
 });
+
+taraOptions.addEventListener("change", () =>{
+    tara.value = parseFloat(taraOptions.value);
+})
 
 //Aktuelle Dichte
 function currentDensity(){
@@ -117,6 +123,7 @@ const initialState ={
     diameter_options: "-",
     kg: "",
     tara: "0",
+    tara_options: "-",
     threads: "1"
 };
 

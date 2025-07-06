@@ -33,7 +33,27 @@
                 <div class="ctn--1">
             
                     <div class="eingabe">
-                        <div class="paar">
+                        <div class="calc_type">
+                            <form>
+                                <fieldset>
+                                    <div class="radio_container">
+                                        <div class="radio1">
+                                            <input type="radio" name="calc_type" id="mat_dia" value="dia" checked>
+                                            <label for="mat_dia">Diameter</label>
+                                        </div>
+                                        <div class="radio2">
+                                            <label for="dtex">dTex</label>
+                                            <input type="radio" name="calc_type" id="dtex" value="dtex">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="paar calc_type_dtex">
+                            <label class="label" for="dtex">dTex:</label>
+                            <input type="number" name="dtex" id="dtex">
+                        </div>
+                        <div class="paar calc_type_dia">
                             <label class="label" for="material">Material:</label>
                             <select name="material" id="material">
                                 <option value="pet">Polyester(PET)</option>
@@ -47,7 +67,7 @@
                             </select>
                         </div>
             
-                        <div class="paar">
+                        <div class="paar calc_type_dia">
                             <label class="label" for="diameter">Durchmesser:</label>
                             <input type="number" name="diameter" id="diameter">
                             <select id="diameter_options" class="options-menu">
@@ -93,7 +113,6 @@
                                 <option value="0.9">K250(aus PP)</option>
                                 <option value="0.55">K200(aus PP, geschlossen)</option>
                                 <option value="0.7">K200(aus PP, offen)</option>
-                               
                             </select>
                         </div>
 

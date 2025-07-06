@@ -95,6 +95,16 @@ nav, .ctn--0{
     font-size: 14px;
     text-align: center;
 }
+
+.radio_container{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 50px;   
+}
+
+
+
+
 .ctn--0 {
     
     background-color: rgb(0, 255, 255);
@@ -228,4 +238,13 @@ nav, .ctn--0{
 .hundertP {
     font-size: 10px;
     padding-left: 10px;
+}
+
+
+.calc_type_dtex.hide{
+    display: none;
+}
+
+.calc_type_dia.hide{
+    display: none;
 }

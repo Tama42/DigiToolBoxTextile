@@ -16,6 +16,7 @@ const diameterOptions = document.getElementById("diameter_options");
 const diameterField = document.getElementById("diameter");
 const taraOptions = document.getElementById("tara_options");
 const taraField = document.getElementById("tara");
+const radioButtons = document.querySelectorAll('input[name="calc_type"]');
 
 
 
@@ -51,6 +52,33 @@ diameterOptions.addEventListener("change", () => {
 taraOptions.addEventListener("change", () =>{
     tara.value = parseFloat(taraOptions.value);
 })
+
+//Radio-Buttons 
+radioButtons.forEach(radio => {
+    radio.addEventListener("change", () =>{
+
+        const calcDiameterFields = document.querySelectorAll('.calc_type_dia');
+        const calcDtexFields = document.querySelectorAll('.calc_type_dtex');
+        const selected = document.querySelector('input[name="calc_type"]:checked');
+            
+        if(selected.value == "dtex"){
+            calcDiameterFields.forEach(el =>{
+                el.classList.add("hide");
+            });
+            calcDtexFields.forEach(el =>{
+                el.classList.remove("hide");
+                });
+        }
+        if(selected.value == "dia"){
+            calcDtexFields.forEach(el =>{
+                el.classList.add("hide");
+            });
+            calcDiameterFields.forEach(el =>{
+                el.classList.remove("hide");
+                });
+        }
+    });
+});
 
 //Aktuelle Dichte
 function currentDensity(){
@@ -212,7 +240,10 @@ window.addEventListener("beforeunload", () => {
 })
 
 //beim Starten der Seite, den gespeicherten Zustand speichern
-document.addEventListener("DOMContentLoaded", loadState);
+document.addEventListener("DOMContentLoaded", () => {
+    loadState();
+    document.querySelector(".calc_type_dtex").classList.add("hide");
+});
 
 //Button-Events
 calcButton.addEventListener("click", () => {

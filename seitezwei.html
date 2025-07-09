@@ -38,12 +38,12 @@
                                 <fieldset>
                                     <div class="radio_container">
                                         <div class="radio1">
-                                            <input type="radio" name="calc_type" id="mat_dia" value="dia" checked>
-                                            <label for="mat_dia">Diameter</label>
+                                            <input type="radio" name="calc_type" id="dia" value="dia" checked>
+                                            <label for="dia">Diameter</label>
                                         </div>
                                         <div class="radio2">
-                                            <label for="dtex">dTex</label>
-                                            <input type="radio" name="calc_type" id="dtex" value="dtex">
+                                            <label for="dtex_radio">dTex</label>
+                                            <input type="radio" name="calc_type" id="dtex_radio" value="dtex">
                                         </div>
                                     </div>
                                 </fieldset>
@@ -137,15 +137,17 @@
             
             
                 <div class="ausgabe1">
-                    <div class="zeile">Material: <span class="wert" id="output_material">-</span></div>
+                    <div class="zeile calc_type_dia">Material: <span class="wert" id="output_material">-</span></div>
             
-                    <div class="zeile">Dichte: <span class="wert" id="output_density">-</span> g/cm³</div>
+                    <div class="zeile calc_type_dia">Dichte: <span class="wert" id="output_density">-</span> g/cm³</div>
+
+                    <div class="zeile calc_type_dtex">dTex: <span class="wert" id="output_dtex">-</span></div>
                 </div>
             
                 <div class="ausgabe2">
                     <div class="zeile"><span class="wert" id="output_weight">-</span>KG (Netto)</div>
             
-                    <div class="zeile"><span class="wert" id="output_diameter">-</span>mm Ø</div>
+                    <div class="zeile calc_type_dia"><span class="wert" id="output_diameter">-</span>mm Ø</div>
             
                     <div class="zeile"><span class="wert" id="output_length">-</span>Länge (M)</div>
             

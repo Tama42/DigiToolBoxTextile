@@ -11,6 +11,7 @@ const materialDichten = {
   };
 
 //Input fields
+const dtex = document.getElementById("dtex");
 const material = document.getElementById("material");
 const diameterOptions = document.getElementById("diameter_options");
 const diameterField = document.getElementById("diameter");
@@ -26,11 +27,13 @@ const resetAllButton = document.getElementById("resetAll");
 const resetWeightButton = document.getElementById("resetWeight");
 
 //Output fields
+const outputDtex = document.getElementById("output_dtex");
 const outputMaterial = document.getElementById("output_material");
 const outputDensity = document.getElementById("output_density");
 const outputWeight = document.getElementById("output_weight");
 const outputDiameter = document.getElementById("output_diameter");
 const outputLength = document.getElementById("output_length");
+
 
 let selectedMaterial = material.options[material.selectedIndex];
 let selectedContent = selectedMaterial.innerText;
@@ -44,9 +47,9 @@ material.addEventListener("change", () => {
 });
 
 diameterOptions.addEventListener("change", () => {
-    let currentDiamter = parseFloat(diameterOptions.value);
-    console.log(currentDiamter)
-    diameterField.value = currentDiamter;
+    let currentDiameter = parseFloat(diameterOptions.value);
+    console.log(currentDiameter)
+    diameterField.value = currentDiameter;
 });
 
 taraOptions.addEventListener("change", () =>{
@@ -79,6 +82,9 @@ radioButtons.forEach(radio => {
         }
     });
 });
+document.querySelectorAll('.calc_type_dtex').forEach(el =>{
+    el.classList.add("hide");
+});
 
 //Aktuelle Dichte
 function currentDensity(){
@@ -90,6 +96,9 @@ function currentDensity(){
 
 //eingetragene Werte übernehmen
 function outputDirect(){
+    const dtexRaw = document.getElementById("dtex").value;
+    const dtex = parseFloat(dtexRaw.trim().replace(",", "."));
+
     const diameterRaw = document.getElementById("diameter").value;
     const diameter = parseFloat(diameterRaw.trim().replace(",", "."));
 
@@ -104,6 +113,16 @@ function outputDirect(){
 
     outputMaterial.innerText = selectedContent;
     outputDensity.innerText = selectedDensity;
+
+    if(!isNaN(dtex)){
+        outputDtex.innerHTML = dtex;
+        console.log("dtex wurde eingegeben.");
+        }
+        else {
+            outputDiameter.innerHTML = "--";
+            console.log("dtex wurde nicht eingegeben.");
+        }
+    
     
     if(!isNaN(diameter)){
     outputDiameter.innerHTML = diameter;
@@ -142,11 +161,12 @@ function outputDirect(){
             console.log("Fäden wurde nicht eingegeben.");
         }
 
-    return {diameter, weight, tara, threads};
+    return {dtex, diameter, weight, tara, threads};
 
 }
 
 const initialState ={
+    dtex: "",
     diameter: "",
     diameter_options: "-",
     kg: "",
@@ -156,6 +176,7 @@ const initialState ={
 };
 
 const outputFields = {
+    outputDtex,
     outputMaterial,
     outputDensity,
     outputWeight,
@@ -163,8 +184,8 @@ const outputFields = {
     outputLength
 };
 
-function lengthCalc(){
-    const {diameter, weight, tara, threads} = outputDirect();
+function lengthCalcDia(){
+    const {dtex, diameter, weight, tara, threads} = outputDirect();
     const nettoWeight = weight - tara;
     const density = currentDensity();
   
@@ -174,6 +195,13 @@ function lengthCalc(){
     const volume = massInGrams / density; // cm³
     const lengthInMeters = (volume / crossSection) / 100; // cm → m
   
+    outputLength.innerHTML = lengthInMeters.toFixed(2);
+}
+
+function lengthCalcDtex(){
+    const {dtex, diameter, weight, tara, threads} = outputDirect();
+    const nettoWeight = weight - tara;
+    const lengthInMeters = ((nettoWeight*10000000) / dtex) / threads;
     outputLength.innerHTML = lengthInMeters.toFixed(2);
 }
 
@@ -239,15 +267,21 @@ window.addEventListener("beforeunload", () => {
     saveState();
 })
 
-//beim Starten der Seite, den gespeicherten Zustand speichern
+//beim Starten der Seite, den gespeicherten Zustand laden
 document.addEventListener("DOMContentLoaded", () => {
     loadState();
-    document.querySelector(".calc_type_dtex").classList.add("hide");
 });
+
 
 //Button-Events
 calcButton.addEventListener("click", () => {
-    lengthCalc();
+    const selected = document.querySelector('input[name="calc_type"]:checked');
+        if(selected.value == "dia"){
+            lengthCalcDia();
+        }
+        else if(selected.value == "dtex"){
+            lengthCalcDtex();
+        }
     saveState();
 });
 resetAllButton.addEventListener("click", () => reset("1"));

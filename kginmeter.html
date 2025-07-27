@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="yarn.js" defer></script>
-    <title>DTB</title>
+    <title>Textil-Rechner</title>
 </head>
 
 <body>
     <div class="main-ctn">
-        <h1>DigiToolBox</h1>
+        <h1>Textil-Rechner</h1>
         <nav>
             <a href="./index.html">
                 <div class="menu seite-eins">Laufzeit</div>
             </a>
-            <a href="./seitezwei.html">
+            <a href="./kginmeter.html">
                 <div style="font-weight: 600" class="menu seite-zwei">Garn</div>
             </a>
             <a href="seitedrei.html">
@@ -52,6 +52,11 @@
                         <div class="paar calc_type_dtex">
                             <label class="label" for="dtex">dTex:</label>
                             <input type="number" name="dtex" id="dtex">
+                            <select id="dtex_options" class="options-menu">
+                                <option value="">-</option>
+                                <option value="470">Bäumchengarn(470 dtex)</option>
+                                
+                            </select>
                         </div>
                         <div class="paar calc_type_dia">
                             <label class="label" for="material">Material:</label>
@@ -108,6 +113,7 @@
                             <select id="tara_options" class="options-menu">
                                 <option value="">-</option>
                                 <option value="1.4">Bäumchne(Alu, Normal)</option>
+                                <option value="9.0">Bäumchne(Alu, Massiev)</option>
                                 <option value="0.55">K125(Lang, ABS)</option>
                                 <option value="1.35">K250(aus PA)</option>
                                 <option value="0.9">K250(aus PP)</option>
@@ -154,7 +160,7 @@
                     </div>
                    
         </main>
- <span>Seite befindet sich in Bearbeitung!</span>
+ 
         <footer>
             <span> <a href="mailto:info@erdjeans.de">info@erdjeans.de</a></span>
         </footer>

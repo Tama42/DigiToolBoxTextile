@@ -17,6 +17,7 @@ const diameterOptions = document.getElementById("diameter_options");
 const diameterField = document.getElementById("diameter");
 const taraOptions = document.getElementById("tara_options");
 const taraField = document.getElementById("tara");
+const dtexOptions = document.getElementById("dtex_options");
 const radioButtons = document.querySelectorAll('input[name="calc_type"]');
 
 
@@ -54,7 +55,11 @@ diameterOptions.addEventListener("change", () => {
 
 taraOptions.addEventListener("change", () =>{
     tara.value = parseFloat(taraOptions.value);
-})
+});
+
+dtexOptions.addEventListener("change", () =>{
+    dtex.value = parseFloat(dtexOptions.value);
+});
 
 //Radio-Buttons 
 radioButtons.forEach(radio => {
@@ -167,6 +172,7 @@ function outputDirect(){
 
 const initialState ={
     dtex: "",
+    dtex_options: "-",
     diameter: "",
     diameter_options: "-",
     kg: "",
